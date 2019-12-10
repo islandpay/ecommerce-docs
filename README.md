@@ -14,6 +14,9 @@ Live environment: `snapper.islandpay.com`
 
 `POST` `https://conch.islandpay.com/ecomm/orders`
 
+Headers:
+* `Content-Type`: `application/json`
+
 Request Parameters (in body):
 
 * `merchant_account_id`: your Merchant Account ID
@@ -70,3 +73,18 @@ Response example
 }
 ```
 
+## Get Order QR Code
+
+Get the a QR code for the order, this QR code can be used by the Island Pay app to pay.
+
+`GET` `https://conch.islandpay.com/ecomm/qrcodeimage/{{order_code}}?size={{size}}`
+
+Parameters (in path and query):
+- `order_code`: received when creating an order
+- `size` (optional): size in pixels of each square of the QR code
+
+The response will be a string with the QR code encoded in base 64 that can be used inside an HTML `img`:
+
+```
+data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZoAA [...]
+```
