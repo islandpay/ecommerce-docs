@@ -3,6 +3,7 @@
 Using the Island Pay eComm Gateway, you will be able to create and query orders as a merchant on Island Pay.
 
 If you prefer to use Postman, the collection is also available in this repository.
+* [ISLAND_PAY_ECOMM.postman_collection.json](ISLAND_PAY_ECOMM.postman_collection.json)
 
 The testing environment uses the host `conch.islandpay.com`. When you are finished with tests and want to start working in the live environment, please change the host to `snapper.islandpay.com`.
 
