@@ -1,0 +1,169 @@
+{
+	"info": {
+		"_postman_id": "c49e420c-1813-4955-8c93-394f0fad43c9",
+		"name": "ISLAND_PAY_ECOMM",
+		"description": "Island Pay e-Commerce Gateway API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Order",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://conch.islandpay.com/ecomm/orders/{{order_code}}",
+					"protocol": "https",
+					"host": [
+						"conch",
+						"islandpay",
+						"com"
+					],
+					"path": [
+						"ecomm",
+						"orders",
+						"{{order_code}}"
+					]
+				},
+				"description": "Get the status of a on order\n\nParameter:\n- `order_code`: received when creating an order"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Order QR Code",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://conch.islandpay.com/ecomm/qrcodeimage/{{order_code}}?size={{size}}",
+					"protocol": "https",
+					"host": [
+						"conch",
+						"islandpay",
+						"com"
+					],
+					"path": [
+						"ecomm",
+						"qrcodeimage",
+						"{{order_code}}"
+					],
+					"query": [
+						{
+							"key": "size",
+							"value": "{{size}}"
+						}
+					]
+				},
+				"description": "Get the a QR code for the order, this QR code can be used by the Island Pay app to pay.\n\nParameters:\n- `order_code`: received when creating an order\n- `size` (optional): size in pixels of each square of the QR code\n\nThe response will be a string with the QR code encoded in base 64 that can be used inside an HTML `img`:\n```\ndata:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZoAA [...]\n```"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Order",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "32a774c0-6f22-4b7d-a399-2e7ef9288d92",
+						"exec": [
+							"var data = pm.response.json();",
+							"pm.environment.set(\"order_code\", data.code);",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"merchant_account_id\": \"{{merchant_account_id}}\",\n\t\"device_id\": \"{{device_id}}\",\n\t\"pin\": \"{{pin}}\",\n\t\"amount\": 11.22\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://conch.islandpay.com/ecomm/orders",
+					"protocol": "https",
+					"host": [
+						"conch",
+						"islandpay",
+						"com"
+					],
+					"path": [
+						"ecomm",
+						"orders"
+					]
+				},
+				"description": "Create an order.\n\nParameters (in body):\n\n- `merchant_account_id`: your Merchant Account ID\n- `device_id`: your Device ID\n- `pin`: your PIN\n- `amount`: order amount\n\nThe response object will contain:\n- `code`: order code\n- `status`: order status\n- `amount`: order amount"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "2e91c136-59ca-4202-b6b9-27a3023010ba",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "9dc3f762-7928-4111-8c86-6363565ff1d4",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "69db99d1-abda-4676-a967-bfca387a8fb5",
+			"key": "order_code",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "33496a6b-3c0b-478c-91ba-e7e0eaefd362",
+			"key": "device_id",
+			"value": "000000000000000",
+			"type": "string"
+		},
+		{
+			"id": "41110436-4564-4fea-af79-6ee77e7fc52c",
+			"key": "size",
+			"value": "10",
+			"type": "string"
+		},
+		{
+			"id": "99586a23-9f09-4151-a732-a51e2b478899",
+			"key": "merchant_account_id",
+			"value": "00",
+			"type": "string"
+		},
+		{
+			"id": "dca0e46f-aac9-4ebd-b09b-08dc180977fa",
+			"key": "pin",
+			"value": "0000",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
