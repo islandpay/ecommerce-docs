@@ -16,12 +16,10 @@ Live environment: `snapper.islandpay.com`
 
 Request Parameters (in body):
 
-```
-merchant_account_id: your Merchant Account ID
-device_id: your Device ID
-pin: your PIN
-amount: order amount
-```
+* `merchant_account_id`: your Merchant Account ID
+* `device_id`: your Device ID
+* `pin`: your PIN
+* `amount`: order amount
 
 Request example:
 
@@ -36,9 +34,9 @@ Request example:
 
 The response object will contain:
 
-code: order code
-status: order status
-amount: order amount
+* `code`: order code
+* `status`: order status
+* `amount`: order amount
 
 Response example
 ```
@@ -48,3 +46,27 @@ Response example
     "amount": 9.99
 }
 ```
+
+## Get Order
+
+`GET` `https://conch.islandpay.com/ecomm/orders/{{order_code}}`
+
+Parameter (in path):
+
+* `order_code`: received when creating an order
+
+The response object will contain:
+
+* `code`: order code
+* `status`: order status
+* `amount`: order amount
+
+Response example
+```
+{
+    "code": "ed99f78e-9ed2-9922-b912-999981a0bfe0",
+    "status": "pending",
+    "amount": 9.99
+}
+```
+
