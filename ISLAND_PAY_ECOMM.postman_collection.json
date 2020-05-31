@@ -12,7 +12,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://conch.islandpay.com/ecomm/orders/{{order_code}}",
+					"raw": "https://conch.islandpay.com/api/merchant/ecomm/orders/{{order_code}}",
 					"protocol": "https",
 					"host": [
 						"conch",
@@ -20,6 +20,8 @@
 						"com"
 					],
 					"path": [
+						"api",
+						"merchant",
 						"ecomm",
 						"orders",
 						"{{order_code}}"
@@ -35,7 +37,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://conch.islandpay.com/ecomm/qrcodeimage/{{order_code}}?size={{size}}",
+					"raw": "https://conch.islandpay.com/api/merchant/ecomm/qrcodeimage/{{order_code}}?size={{size}}",
 					"protocol": "https",
 					"host": [
 						"conch",
@@ -43,6 +45,8 @@
 						"com"
 					],
 					"path": [
+						"api",
+						"merchant",
 						"ecomm",
 						"qrcodeimage",
 						"{{order_code}}"
@@ -86,15 +90,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"merchant_account_id\": \"{{merchant_account_id}}\",\n\t\"device_id\": \"{{device_id}}\",\n\t\"pin\": \"{{pin}}\",\n\t\"amount\": 11.22\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
+					"raw": "{\n\t\"merchant_account_id\": \"{{merchant_account_id}}\",\n\t\"device_id\": \"{{device_id}}\",\n\t\"pin\": \"{{pin}}\",\n\t\"amount\": 11.22\n}"
 				},
 				"url": {
-					"raw": "https://conch.islandpay.com/ecomm/orders",
+					"raw": "https://conch.islandpay.com/api/merchant/ecomm/orders",
 					"protocol": "https",
 					"host": [
 						"conch",
@@ -102,6 +101,8 @@
 						"com"
 					],
 					"path": [
+						"api",
+						"merchant",
 						"ecomm",
 						"orders"
 					]
@@ -135,31 +136,31 @@
 	],
 	"variable": [
 		{
-			"id": "69db99d1-abda-4676-a967-bfca387a8fb5",
+			"id": "46f60e7c-bc6d-41ce-84e4-696b6125999b",
 			"key": "order_code",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "33496a6b-3c0b-478c-91ba-e7e0eaefd362",
+			"id": "f1cfc758-38d4-4983-b67c-91ff249f88fa",
 			"key": "device_id",
 			"value": "000000000000000",
 			"type": "string"
 		},
 		{
-			"id": "41110436-4564-4fea-af79-6ee77e7fc52c",
+			"id": "31866da0-c80c-4b90-a41a-f896af72cf0d",
 			"key": "size",
 			"value": "10",
 			"type": "string"
 		},
 		{
-			"id": "99586a23-9f09-4151-a732-a51e2b478899",
+			"id": "8d8e2162-1e06-4449-be8a-ec8868921e26",
 			"key": "merchant_account_id",
 			"value": "00",
 			"type": "string"
 		},
 		{
-			"id": "dca0e46f-aac9-4ebd-b09b-08dc180977fa",
+			"id": "59ad835f-8cba-487a-9628-6a2ad7d7173f",
 			"key": "pin",
 			"value": "0000",
 			"type": "string"
