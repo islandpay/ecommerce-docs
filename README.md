@@ -94,3 +94,21 @@ The response will be a string with the QR code encoded in base 64 that can be us
 ```text
 data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZoAA [...]
 ```
+
+## Redirect to mobile app
+
+The app supports redirecting directly to an order from a webpage.
+To create a "Pay Button" that will redirect to an order on the mobile app use an html snippet like this:
+
+```html
+<div class="pay-button"
+    onclick="window.location = 'https://conch.islandpay.com/consumer/pay?order={{order_id}}'">
+    <span>Pay with</span>
+    <img src="logo_text.png">
+</div>
+```
+
+Notes:
+1. Replace `{{order_id}}` with the correct order received through the API
+2. In production, replace the host as specified on the top of this document
+3. The `logo_text.png` image is included in this repository
