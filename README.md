@@ -111,4 +111,5 @@ To create a "Pay Button" that will redirect to an order on the mobile app use an
 Notes:
 1. Replace `{{order_id}}` with the correct order received through the API
 2. In production, replace the host as specified on the top of this document
-3. The `logo_text.png` image is included in this repository
+3. The sample `logo_text.png` image is included in this repository
+   * For different images (background color, text color, etc), please contact Island Pay
