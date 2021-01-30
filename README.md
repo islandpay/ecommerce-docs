@@ -113,3 +113,13 @@ Notes:
 2. In production, replace the host as specified on the top of this document
 3. The sample `logo_text.png` image is included in this repository
    * For different images (background color, text color, etc), please contact Island Pay
+   
+If you prefer to use a custom scheme to redirect to the app, use an html snippet like this:
+
+```html
+<div class="pay-button"
+    onclick="window.location = 'islandpay://conch.islandpay.com/consumer/pay?order={{order_id}}'">
+    <span>Pay with</span>
+    <img src="logo_text.png">
+</div>
+```
