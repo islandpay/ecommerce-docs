@@ -102,14 +102,14 @@ To create a "Pay Button" that will redirect to an order on the mobile app use an
 
 ```html
 <div class="pay-button"
-    onclick="window.location = 'https://conch.islandpay.com/consumer/pay?order={{order_id}}'">
+    onclick="window.location = 'https://conch.islandpay.com/consumer/pay?order={{order_code}}'">
     <span>Pay with</span>
     <img src="logo_text.png">
 </div>
 ```
 
 Notes:
-1. Replace `{{order_id}}` with the correct order received through the API
+1. Replace `{{order_code}}` with the correct order received through the API
 2. In production, replace the host as specified on the top of this document
 3. The sample `logo_text.png` image is included in this repository
    * For different images (background color, text color, etc), please contact Island Pay
@@ -118,7 +118,7 @@ If you prefer to use a custom scheme to redirect to the app, use an html snippet
 
 ```html
 <div class="pay-button"
-    onclick="window.location = 'islandpay://conch.islandpay.com/consumer/pay?order={{order_id}}'">
+    onclick="window.location = 'islandpay://conch.islandpay.com/consumer/pay?order={{order_code}}'">
     <span>Pay with</span>
     <img src="logo_text.png">
 </div>
