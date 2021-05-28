@@ -49,6 +49,7 @@ Response example:
 ```json
 {
     "code": "ed99f78e-9ed2-9922-b912-999981a0bfe0",
+    "sandDollarCode": "tesrorg+order-PPKJbi7h1aXdLRK3T7BNdM@sanddollar.bs?amount=9.99",
     "status": "pending",
     "amount": 9.99
 }
@@ -73,6 +74,7 @@ Response example:
 ```json
 {
     "code": "ed99f78e-9ed2-9922-b912-999981a0bfe0",
+    "sandDollarCode": "tesrorg+order-PPKJbi7h1aXdLRK3T7BNdM@sanddollar.bs?amount=9.99",
     "status": "pending",
     "amount": 9.99
 }
@@ -83,6 +85,23 @@ Response example:
 Get the a QR code for the order, this QR code can be used by the Island Pay app to pay.
 
 `GET` `https://conch.islandpay.com/api/merchant/ecomm/qrcodeimage/{{order_code}}?size={{size}}`
+
+Parameters (in path and query):
+
+* `order_code`: received when creating an order
+* `size` (optional): size in pixels of each square of the QR code
+
+The response will be a string with the QR code encoded in base 64 that can be used inside an HTML `img`:
+
+```text
+data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZoAA [...]
+```
+
+## Get Order QR Code for Sand Dollar
+
+Get the a QR code for the order, this QR code can be used by the Island Pay app to pay.
+
+`GET` `https://conch.islandpay.com/api/merchant/ecomm/qrcodeimage/{{order_code}}/sd?size={{size}}`
 
 Parameters (in path and query):
 
